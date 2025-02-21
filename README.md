@@ -1,46 +1,35 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Setup:
+1. After pulling the project, run npm install to download and install packages and to create a package-lock.json
+2. You will need to get a GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET setup in config.ts file.
+3. First go to https://developers.google.com/identity/oauth2/web/guides/get-google-api-clientid
+4. Click on Configure a project
+5. Create a new project or choose an existing Project
+6. Click NEXT button
+7. Select that you are choosing from a Web browser
+8. DO NOT put any Authorized Javascript Origin. There is a bug in this UI that does not allow you to add http://localhost nor http://localhost:3000.
+9. Click on CREATE
+10. DO NOT copy the keys. We will not be using this one that you just created. We will instead be using one that Google Auto Generated after creating this one.
+11. Click on API to go to the Google Cloud API & Services
+12. This part may or may not be somewhat buggy. I experienced inconsistency when trying to view data on this page.
+13. Go to Credentials
+14. You should see both the OAuth client you created and something called "Web client (Auto-created for Google Sign-in)
+15. For a reason I do not understand, the one you created cannot be used (at least not in local)
+16. Click on the one that has "Web client (Auto-created for Google Sign-in)"
+17. You should see a section for Authorized JavaScript origins
+18. Click ADD URI
+19. Add http://localhost:3000
+20. Click ADD URI again
+21. Add http://localhost
+22. Make sure to click SAVE at the bottom of the page and confirm changes saved successfully
+23. Copy the Client ID under Additional Information
+24. Paste it within the quotes after GOOGLE_CLIENT_ID in config.ts file in the UI project
+25. Copy the Client secret
+26. Paste it within the quotes after GOOGLE_CLIENT_SECRET in config.ts file in the UI project
+27. These two variables exist and are referenced when logging in so Google understands you have permission to use its Log In OAuth2 API service.
+28. This UI requires the use of 3 APIs with each of their own setup to work fully. Make sure to change the APIs localhost for each to match with what is in config as they cannot all be 8080.
+29. Social Media API: https://github.com/dpennstate/Week2_Backend
+30. Employee RESTful API: https://github.com/dpennstate/RESTful_API_with_CRUD_Operations_backend
+31. Open Weather 3rd Party API: https://github.com/dpennstate/consume_3rd_party_api_backend
+32. Run npm start within your terminal or click the Play button in your IDE
+33. Go to localhost:3000 or whatever default localhost is setup for your project
+34. You can now login through Google OAuth2 API service as well as communicate with Employee RESTful API and Open Weather 3rd Party API
